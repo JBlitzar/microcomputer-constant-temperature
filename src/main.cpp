@@ -46,10 +46,6 @@ void set_setpoint(int target){
     if(diff == 0){
         return;
     }
-    if(abs(diff) > SETPOINT_MAX){
-        resync_setpoint();
-        diff = target - setpoint;
-    }
     if(diff > 0){
         press_button(SET);
         press_button_n_times(UP, diff);
