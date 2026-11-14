@@ -48,24 +48,24 @@ void setup() {
     pinMode(pin, OUTPUT_OPEN_DRAIN);
     digitalWrite(pin, HIGH);
   }
-  sleep(5*1000);
+  delay(5*1000);
 
   press_button(SET);
   press_button_n_times(DOWN, 400);
   press_button(ENT);
 
-  sleep(1000 * 10);
+  delay(1000 * 10);
   set_setpoint(100);
-  sleep(1000 * 10);
+  delay(1000 * 10);
   set_setpoint(50);
-  sleep(1000 * 5);
+  delay(1000 * 5);
   set_setpoint(0);
-  sleep(1000 * 5);
+  delay(1000 * 5);
 }
 
 
 void loop() {
 
-    sleep(1000);
+    delay(1000);
 
 }
