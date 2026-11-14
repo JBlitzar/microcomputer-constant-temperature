@@ -68,12 +68,21 @@ void setup() {
   resync_setpoint();
 
   delay(1000 * 10);
-  set_setpoint(100);
-  delay(1000 * 10);
-  set_setpoint(50);
-  delay(1000 * 5);
+  set_setpoint(89);
+  delay(1000 * 14);
+  set_setpoint(124);
+  delay(17 * 1000);
+  set_setpoint(158);
+  delay(15 * 1000);
+  set_setpoint(101);
+  delay(59 * 1000);
   set_setpoint(0);
-  delay(1000 * 5);
+
+  // delay(1000 * 10);
+  // set_setpoint(50);
+  // delay(1000 * 5);
+  // set_setpoint(0);
+  // delay(1000 * 5);
 }
 
 void loop() {
