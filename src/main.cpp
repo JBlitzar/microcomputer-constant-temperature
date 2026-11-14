@@ -63,8 +63,8 @@ void setup() {
     pinMode(pin, OUTPUT_OPEN_DRAIN);
     digitalWrite(pin, HIGH);
   }
-  delay(5*1000);
 
+  delay(5*1000);
   resync_setpoint();
 
   delay(1000 * 10);
