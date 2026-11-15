@@ -1,6 +1,6 @@
 # microcomputer-constant-temperature
 
-make your hot plate go on its own
+modding my hot plate to go on its own
 
 ## Background
 
