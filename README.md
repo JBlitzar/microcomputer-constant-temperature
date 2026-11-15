@@ -9,6 +9,7 @@ GPIOs 21, 22, 25, and 26
 
 ![](docs/devkit_diagram.png)
 
-- build: `pio run`
-- flash: `pio run -t upload`
-- logs: `pio device monitor`
+- build: `make build`
+- flash: `make upload`
+- logs: `make monitor`
+- compiledb: `make db`
