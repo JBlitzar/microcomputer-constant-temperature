@@ -7,6 +7,8 @@ GPIOs 21, 22, 25, and 26
 - GPIO25: "set"
 - GPIO26: "ent"
 
+Heating model derived in https://www.desmos.com/calculator/reyvmryl8c
+
 ![](docs/devkit_diagram.png)
 
 - build: `make build`
