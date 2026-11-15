@@ -37,6 +37,11 @@ That's the forward model: predict time-series temperature given setpoint $S$ and
 
 On the PCB, genuinely the only silkscreen markings other than footprints and reference designators were "K+/K-" and "输入/输出"
 
+The weigu.lu source ((3) above) writes, "A 5 pin header (not soldered) is connected to the 20 pin microcontroller. The µC is not labeled and I thought after a little research we have an STM8103F3. Basil wrote me that this was not likely, as ST parts always have markings and this chip doesn't. He also wrote the chip is highly likely one of many Asian-brand STM8S003-pin-compatible MCUs that are typically based on 8051 or ARM Cortex M0+ processors."
+
+Well, on my rev of the board the chip did have markings on it, and it's a Nuvoton MS51FB9AE ([datasheet](https://www.nuvoton.com/export/resource-files/DS_MS51FB9AE_MS51XB9AE_MS51XB9BE_EN_Rev1.pdf)). The MS51FB9AE is in fact an STM8S003 pin compatible 8051 Asian-brand MCU. It's possible that weigu's mystery chip is the MS51FB9AE as well. 
+
+
 Here's the board if you're curious:
 
 |     |     |
