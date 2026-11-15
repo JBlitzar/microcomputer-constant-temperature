@@ -189,3 +189,5 @@ It turns out that the original model of the TLBZK-1010 is likely the BY-1010, ma
 Additionally, this [teardown](https://www.elektormagazine.com/review/by1515-hot-plate-review) of a BY-1515 hot plate has exactly the same internal construction as mine. This provides pretty strong evidence that my hot plate is BYA.
 
 Bangyuan also [sells older 946C models](https://detail.1688.com/offer/691467789579.html), so a connection to the UYUE 946-1010 (as discussed in the weigu.lu post) is possible. It would explain the similarities in the PCBs. However, my PCB says "SW-1010 V1.96", and weigu.lu's pcb says "XDAY-YYUVDJS-220V V1.0" which is a completely different naming scheme. It's possible that the designs are similar but unrelated.
+
+I managed to find the [manual online](https://manuals.plus/m/c7551a32cc5f380b7d3d47e4315a2cc5b2820a414ad7013906076bcfe84d6f3d.pdf).
