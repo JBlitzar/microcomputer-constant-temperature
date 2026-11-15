@@ -90,6 +90,8 @@ Wiring diagram:
 
 ## Serial commands
 
+Unplug the hot plate before connecting over USB.
+
 Head over to https://terminal.spacehuhn.com/ and connect!
 
 Times are in seconds unless noted, and temperatures are in C.
