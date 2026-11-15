@@ -13,7 +13,7 @@ namespace solver {
 constexpr float T0 = 22.0f;
 constexpr float MAX_ERR = 1.0f;
 constexpr int LAG_S = 5;
-constexpr int GRID_MIN = 30, GRID_MAX = 250;
+constexpr int GRID_MIN = 30, GRID_MAX = 400;
 constexpr int MAX_S = 900;
 
 constexpr int ERR_PARAM = -1;
