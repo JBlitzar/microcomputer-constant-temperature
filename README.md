@@ -62,7 +62,7 @@ Here's the board if you're curious:
 
 ## Searching for a brand that doesn't exist
 
-![](docs/meme.png)
+<img src="docs/meme.png" style="width: 50%">
 
 So I saw images of the TLBZK-1010, which looked extremely similar. But basically there are a ton of different listings out there, all from random brands I've never heard of, like Soiiw, VQP, Irfora, XiaoXIN, Alisa, 鹿仙子, 淮漫,  etc. Some are marked, and some are unmarked. But it's not like they are all knockoffs. They literally have the exact same construction, and they even share a promotional video:
 
