@@ -1,7 +1,5 @@
 # microcomputer-constant-temperature
 
-GPIOs 21, 22, 25, and 26
-
 - GPIO21: "down"
 - GPIO22: "up"
 - GPIO25: "set"
@@ -9,7 +7,7 @@ GPIOs 21, 22, 25, and 26
 
 Heating model derived in https://www.desmos.com/calculator/reyvmryl8c
 
-![](docs/devkit_diagram.png)
+![](docs/wiring_diagram.png)
 
 - build: `make build`
 - flash: `make upload`
