@@ -191,3 +191,12 @@ Bangyuan also [sells older 946C models](https://detail.1688.com/offer/6914677895
 The BY1010 PCB and weigu's "UYUE 946-1010" PCB do have many similarities. They share the same inductor packaging, the same capacitor packaging for the bulk cap, the same resistor-and-heatsink fixture, the same thermocouple wire and connector, and overall a very similar circuit topology. 
 
 I managed to find the [manual online](https://manuals.plus/m/c7551a32cc5f380b7d3d47e4315a2cc5b2820a414ad7013906076bcfe84d6f3d.pdf).
+
+
+## BOM
+
+|Item                         |URL                                                                                   |Cost            |Description                                                                                                                                                         |
+|-----------------------------|--------------------------------------------------------------------------------------|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|BY1010 hot plate             |https://www.amazon.com/Soiiw-Soldering-Microcomputer-Electric-100X100mm/dp/B0CN19C4DC/|N/A, already own|you need a hot plate to mod of course. Amazon URL is an example listing.                                                                                            |
+|6x female-female dupont wires|N/A                                                                                   |N/A, already own|For the bodges                                                                                                                                                      |
+|esp32 devboard               |https://www.adafruit.com/product/3269                                                 |N/A, already own|Example adafruit listing. Any devboard that has 5v vin, usb peripheral, adc pins, and open-drain gpio works if you change the platformio.ini to flash for that board|

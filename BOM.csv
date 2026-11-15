@@ -1,0 +1,4 @@
+Item,URL,Cost,Description
+BY1010 hot plate,https://www.amazon.com/Soiiw-Soldering-Microcomputer-Electric-100X100mm/dp/B0CN19C4DC/,"N/A, already own",you need a hot plate to mod of course. Amazon URL is an example listing.
+6x female-female dupont wires,N/A,"N/A, already own",For the bodges
+esp32 devboard,https://www.adafruit.com/product/3269,"N/A, already own","Example adafruit listing. Any devboard that has 5v vin, usb peripheral, adc pins, and open-drain gpio works if you change the platformio.ini to flash for that board"
