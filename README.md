@@ -22,7 +22,16 @@ My approach is slightly different: All I do is hook up the esp32 to the button i
 
 The other thing is that ideal reflow profiles are actually trapezoids and not smooth. I collected empirical data, found that it heating curves looked mostly exponential[^1], and fitted two parameters: A maximum heating rate $r$, and an exponential time constant $k$ that seemed to be linear in terms of the setpoint[^2].
 
-To be precise, given $$t_{k}\left(r,k\right)=\frac{S-T_{0}}{r}-\frac{1}{k}$$, I fit $$y_{d}\sim\left\{x_{d}<t_{k}\left(r,k\right):T_{0}+rx_{d},S-\frac{r}{k}e^{-k\left(x_{d}-t_{k}\left(r,k\right)\right)}\right\}$$
+To be precise, given $$t_{k}\left(r,k\right)=\frac{S-T_{0}}{r}-\frac{1}{k}$$, I fit 
+
+$$
+y_d \sim \left\{
+\begin{array}{ll}
+T_0 + rx_d, & x_d < t_k(r,k)\\
+S-\frac{r}{k}e^{-k(x_d-t_k(r,k))}, & \text{otherwise}
+\end{array}
+\right.
+$$
 
 You can see this all in Desmos! https://www.desmos.com/calculator/reyvmryl8c
 
