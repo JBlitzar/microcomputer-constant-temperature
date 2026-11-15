@@ -78,6 +78,7 @@ In general, only do this if you know what you're doing safety-wise.
  - unscrew the board, unclip all the connectors, and take it out
  - solder bodges according to the wiring diagram
  - use electrical tape to tape everything that's exposed so that there are no unexpected surprises
+ - plug in the usb to the esp32 and route it out through the hole in the top
  - screw the board back on and re clip the connectors
 
 Note:
