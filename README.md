@@ -30,7 +30,7 @@ y_d \sim \left\lbrace
 T_0+rx_d, & x_d<t_k(r,k)\\
 S-\frac{r}{k}e^{-k(x_d-t_k(r,k))}, & \text{otherwise}
 \end{array}
-\right.\rbrace
+\right\rbrace
 $$
 
 You can see this all in Desmos! https://www.desmos.com/calculator/reyvmryl8c
