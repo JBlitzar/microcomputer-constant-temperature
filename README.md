@@ -4,7 +4,11 @@ make your hot plate go on its own
 
 ## Background
 
-So a while ago I bought a hot plate. It's unclear what the MPN is; it literally just says "microcomputer constant temperature" on the front. It might be the TLBZK-1010. Mine was unmarked. Nobody knows.
+So a while ago I bought a hot plate. It's unclear what the MPN is; it literally just says "microcomputer constant temperature" on the front. It might be the TLBZK-1010. Mine was unmarked. Nobody knows. It's quite possible that mine is an unbranded knockoff of the original TLBZK-1010.
+
+All the description says is "hot film machine is an intelligent constant temperature heating station which suitable for any usage scenarios require forconstant \[sic\] temperature heating e.g.: PCB preheat; LED welding;Molding; Dispensing; Chemical experiment; Heat curing"
+
+"suitable for any usage scenarios" is a pretty strong claim indeed.
 
 So you can press the buttons to set different temperatures, but I thought it would be cool if I could do a little bit of hardware hacking and replay reflow curves, like a proper reflowing machine.
 
