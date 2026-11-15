@@ -24,14 +24,12 @@ The other thing is that ideal reflow profiles are actually trapezoids and not sm
 
 To be precise, given $$t_{k}\left(r,k\right)=\frac{S-T_{0}}{r}-\frac{1}{k}$$, I fit 
 
-$$
-y_d \sim \left\lbrace
-\begin{array}{ll}
-T_0+rx_d, & x_d<t_k(r,k)\\
-S-\frac{r}{k}e^{-k(x_d-t_k(r,k))}, & \text{otherwise}
-\end{array}
-\right\rbrace
-$$
+```math
+y_{d}\sim\begin{cases}
+T_{0}+rx_{d}, & x_{d}\lt t_{k}(r,k) \\
+S-\dfrac{r}{k}e^{-k\left(x_{d}-t_{k}(r,k)\right)}, & x_{d}\ge t_{k}(r,k)
+\end{cases}
+```
 
 You can see this all in Desmos! https://www.desmos.com/calculator/reyvmryl8c
 
