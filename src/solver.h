@@ -19,6 +19,7 @@ constexpr int MAX_S = 900;
 constexpr int ERR_PARAM = -1;
 constexpr int ERR_NOSOLUTION = -2;
 
+// https://www.desmos.com/calculator/reyvmryl8c
 constexpr float R = 2.2f;
 
 inline float k_of(float S) {
