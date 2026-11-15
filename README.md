@@ -6,17 +6,31 @@ make your hot plate go on its own
 
 So a while ago I bought a hot plate. It's unclear what the MPN is; it literally just says "microcomputer constant temperature" on the front.
 
-So you can press the buttons to set different temperatures
+So you can press the buttons to set different temperatures, but I thought it would be cool if I could do a little bit of hardware hacking and replay reflow curves, like a proper reflowing machine.
+
+A few others have done teardowns of similar models ([1](https://hackaday.com/2022/03/10/reflow-hotplate-teardown-uncovers-the-bare-minimum/), or look on youtube).
+
+Others ([2](https://www.e-tinkers.com/2021/07/converting-uyue-preheater-into-a-solder-reflow-hot-plate/), [3](https://www.weigu.lu/microcontroller/uyue_946_hack/index.html), [4](https://github.com/DurandA/reflow946)) have done what I've done, except they mostly do a drop-in replacement of the entire controller. 
+
+I'm doing something a little different, which is that I'm leaving the original controller board mostly intact. In (3) they use a similar (but distinct) model of hot plate, and they cut out the chip and reimplement everything in the esp32. They also reversed a schematic, which was very useful to look at because it's quite similar to my board!
+
+Unfortunately, the blog post ends with "Everything will be on github" and no github link.
+
+## How it works
+
+My approach is slightly different: All I do is hook up the esp32 to the button inputs and the 5v rail, and then it emulates button presses at superhuman speeds at a millisecond schedule.
+
+The other thing is that ideal reflow profiles are actually trapezoids and not smooth. I collected empirical data, found that it heating curves looked mostly exponential[^1], and fitted two parameters: A maximum heating rate $r$, and an exponential time constant $k$ that seemed to be linear in terms of the setpoint[^2].
+
+You can see this all in Desmos! https://www.desmos.com/calculator/reyvmryl8c
+
+That's the forward model: predict time-series temperature given setpoint $S$ and current temperature $T_0$. Then I have a greedy optimizer that runs on the esp32 to calculate this when you bake a recipe.
+
+
+[^1]: There's an undulating pattern in the residuals, which isn't exactly ideal, but the model works well enough for my needs
+[^2]: So I only collected time-series data for three heating curves, so of course everything looks pretty linear, but I think it'll work.
 
 ## Info about this repo
-
-- GPIO21: "down"
-- GPIO22: "up"
-- GPIO25: "set"
-- GPIO26: "ent"
-
-Heating model derived in https://www.desmos.com/calculator/reyvmryl8c
-
 
 - build: `make build`
 - flash: `make upload`
@@ -34,6 +48,13 @@ You can make this yourself if you have a microcomputer constant temperature, a s
  - use electrical tape to tape everything that's exposed so that there are no unexpected surprises
  - screw the board back on and re clip the connectors
 
+Note:
+ - GPIO21: "down"
+ - GPIO22: "up"
+ - GPIO25: "set"
+ - GPIO26: "ent"
+
+Wiring diagram: 
 ![](docs/wiring_diagram.png)
 
 
