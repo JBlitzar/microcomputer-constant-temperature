@@ -44,6 +44,8 @@ You can see this all in Desmos! https://www.desmos.com/calculator/reyvmryl8c
 
 That's the forward model: predict time-series temperature given setpoint $S$ and current temperature $T_0$. Then I have a greedy optimizer that runs on the esp32 to calculate this when you bake a recipe.
 
+Also, I can read the button presses through the ADC pins. This is how it's activated
+
 On the PCB, genuinely the only silkscreen markings other than footprints and reference designators were "SW-1010 V1.96", "K+/K-", and "输入/输出"
 
 The weigu.lu source ((3) above) writes, "A 5 pin header (not soldered) is connected to the 20 pin microcontroller. The µC is not labeled and I thought after a little research we have an STM8103F3. Basil wrote me that this was not likely, as ST parts always have markings and this chip doesn't. He also wrote the chip is highly likely one of many Asian-brand STM8S003-pin-compatible MCUs that are typically based on 8051 or ARM Cortex M0+ processors."
