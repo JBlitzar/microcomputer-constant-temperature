@@ -2,9 +2,13 @@
 
 modding my hot plate to go on its own
 
-Here's a demo wherein the hotplate goes to 100 C approximately linearly as fast as possible with minimal overshoot 
+Here's a demo (2x speed) wherein the hotplate goes to 100 C approximately linearly as fast as possible with minimal overshoot 
 
-https://github.com/user-attachments/assets/0adc353d-2845-423f-adc6-433fae66a70b
+
+
+https://github.com/user-attachments/assets/5015915c-59e3-472f-948d-719f8987d8d4
+
+
 
 
 ## Background
