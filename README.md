@@ -9,7 +9,7 @@ https://github.com/user-attachments/assets/0adc353d-2845-423f-adc6-433fae66a70b
 
 ## Background
 
-So a while ago I bought a hot plate. It's unclear what the MPN is; it literally just says "microcomputer constant temperature" on the front.
+So a while ago I bought a hot plate. It's unclear what the MPN is; it literally just says "microcomputer constant temperature" on the front. (note: I later did some research and found that it's likely the BY-1010: see [here](#searching-for-a-brand-that-doesnt-exist))
 
 All the description says is "hot film machine is an intelligent constant temperature heating station which suitable for any usage scenarios require forconstant \[sic\] temperature heating e.g.: PCB preheat; LED welding;Molding; Dispensing; Chemical experiment; Heat curing"
 
@@ -59,21 +59,6 @@ Here's the board if you're curious:
 
 [^1]: There's an undulating pattern in the residuals, which isn't exactly ideal, but the model works well enough for my needs
 [^2]: So I only collected time-series data for three heating curves, so of course everything looks pretty linear, but I think it'll work.
-
-## Searching for a brand that doesn't exist
-
-<img src="docs/meme.png" style="width: 50%">
-
-So I saw images of the TLBZK-1010, which looked extremely similar. But basically there are a ton of different listings out there, all from random brands I've never heard of, like Soiiw, VQP, Irfora, XiaoXIN, Alisa, 鹿仙子, 淮漫,  etc. Some are marked, and some are unmarked. But it's not like they are all knockoffs. They literally have the exact same construction, and they even [share a promotional video](https://github.com/user-attachments/assets/fcc2f420-7407-446b-89d2-e6c64d6c73f5).
-
-It turns out that the original model of the TLBZK-1010 is likely the BY-1010, made by 东莞市邦远电子有限公司[^3] (Dongguan Bangyuan Electronic Co., Ltd. aka BYA). [Bangyuan's supplier listing](https://detail.1688.com/offer/653577265211.html) offers the same-looking 350 W, 100x100 mm hot plate. The supplier advertises private labeling, and a buyer review mentions ordering a custom logo.
-
-[^3]: It's unclear if they rebranded from Dongguan Bangyuan Electronics to Shenzhen Bangyuan Hardware.
-
-
-Additionally, this [teardown](https://www.elektormagazine.com/review/by1515-hot-plate-review) of a BY-1515 hot plate has exactly the same internal construction as mine. This provides pretty strong evidence that my hot plate is BYA.
-
-Bangyuan also [sells older 946C models](https://detail.1688.com/offer/691467789579.html), so a connection to the UYUE 946-1010 (as discussed in the weigu.lu post) is possible. It would explain the similarities in the PCBs. However, my PCB says "SW-1010 V1.96", and weigu.lu's pcb says "XDAY-YYUVDJS-220V V1.0" which is a completely different naming scheme. It's possible that the designs are similar but unrelated.
 
 ## Info about this repo
 
@@ -181,3 +166,19 @@ CLEAR
 4. It returns to idle.
 
 ESTOP is the power switch on the back
+
+
+## Searching for a brand that doesn't exist
+
+<img src="docs/meme.png" style="width: 50%">
+
+So I saw images of the TLBZK-1010, which looked extremely similar. But basically there are a ton of different listings out there, all from random brands I've never heard of, like Soiiw, VQP, Irfora, XiaoXIN, Alisa, 鹿仙子, 淮漫,  etc. Some are marked, and some are unmarked. But it's not like they are all knockoffs. They literally have the exact same construction, and they even [share a promotional video](https://github.com/user-attachments/assets/fcc2f420-7407-446b-89d2-e6c64d6c73f5).
+
+It turns out that the original model of the TLBZK-1010 is likely the BY-1010, made by 东莞市邦远电子有限公司[^3] (Dongguan Bangyuan Electronic Co., Ltd. aka BYA). [Bangyuan's supplier listing](https://detail.1688.com/offer/653577265211.html) offers the same-looking 350 W, 100x100 mm hot plate. The supplier advertises private labeling, and a buyer review mentions ordering a custom logo.
+
+[^3]: It's unclear if they rebranded from Dongguan Bangyuan Electronics to Shenzhen Bangyuan Hardware.
+
+
+Additionally, this [teardown](https://www.elektormagazine.com/review/by1515-hot-plate-review) of a BY-1515 hot plate has exactly the same internal construction as mine. This provides pretty strong evidence that my hot plate is BYA.
+
+Bangyuan also [sells older 946C models](https://detail.1688.com/offer/691467789579.html), so a connection to the UYUE 946-1010 (as discussed in the weigu.lu post) is possible. It would explain the similarities in the PCBs. However, my PCB says "SW-1010 V1.96", and weigu.lu's pcb says "XDAY-YYUVDJS-220V V1.0" which is a completely different naming scheme. It's possible that the designs are similar but unrelated.
