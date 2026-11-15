@@ -64,9 +64,7 @@ Here's the board if you're curious:
 
 <img src="docs/meme.png" style="width: 50%">
 
-So I saw images of the TLBZK-1010, which looked extremely similar. But basically there are a ton of different listings out there, all from random brands I've never heard of, like Soiiw, VQP, Irfora, XiaoXIN, Alisa, 鹿仙子, 淮漫,  etc. Some are marked, and some are unmarked. But it's not like they are all knockoffs. They literally have the exact same construction, and they even share a promotional video:
-
-https://github.com/user-attachments/assets/fcc2f420-7407-446b-89d2-e6c64d6c73f5
+So I saw images of the TLBZK-1010, which looked extremely similar. But basically there are a ton of different listings out there, all from random brands I've never heard of, like Soiiw, VQP, Irfora, XiaoXIN, Alisa, 鹿仙子, 淮漫,  etc. Some are marked, and some are unmarked. But it's not like they are all knockoffs. They literally have the exact same construction, and they even [share a promotional video](https://github.com/user-attachments/assets/fcc2f420-7407-446b-89d2-e6c64d6c73f5).
 
 It turns out that the original model of the TLBZK-1010 is likely the BY-1010, made by 东莞市邦远电子有限公司(Dongguan Bangyuan Electronic Co., Ltd. aka BYA). [Bangyuan's supplier listing](https://detail.1688.com/offer/653577265211.html) offers the same-looking 350 W, 100x100 mm hot plate. The supplier advertises private labeling, and a buyer review mentions ordering a custom logo.
 
