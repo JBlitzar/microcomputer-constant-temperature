@@ -2,6 +2,11 @@
 
 modding my hot plate to go on its own
 
+Here's a demo wherein the hotplate goes to 100 C approximately linearly as fast as possible with minimal overshoot 
+
+https://github.com/user-attachments/assets/0adc353d-2845-423f-adc6-433fae66a70b
+
+
 ## Background
 
 So a while ago I bought a hot plate. It's unclear what the MPN is; it literally just says "microcomputer constant temperature" on the front. It might be the TLBZK-1010. Mine was unmarked. Nobody knows. It's quite possible that mine is an unbranded knockoff of the original TLBZK-1010.
