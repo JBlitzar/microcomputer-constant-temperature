@@ -4,7 +4,7 @@ make your hot plate go on its own
 
 ## Background
 
-So a while ago I bought a hot plate. It's unclear what the MPN is; it literally just says "microcomputer constant temperature" on the front.
+So a while ago I bought a hot plate. It's unclear what the MPN is; it literally just says "microcomputer constant temperature" on the front. It might be the TLBZK-1010. Mine was unmarked. Nobody knows.
 
 So you can press the buttons to set different temperatures, but I thought it would be cool if I could do a little bit of hardware hacking and replay reflow curves, like a proper reflowing machine.
 
@@ -22,10 +22,19 @@ My approach is slightly different: All I do is hook up the esp32 to the button i
 
 The other thing is that ideal reflow profiles are actually trapezoids and not smooth. I collected empirical data, found that it heating curves looked mostly exponential[^1], and fitted two parameters: A maximum heating rate $r$, and an exponential time constant $k$ that seemed to be linear in terms of the setpoint[^2].
 
+To be precise, given $$t_{k}\left(r,k\right)=\frac{S-T_{0}}{r}-\frac{1}{k}$$, I fit $$y_{d}\sim\left\{x_{d}<t_{k}\left(r,k\right):T_{0}+rx_{d},S-\frac{r}{k}e^{-k\left(x_{d}-t_{k}\left(r,k\right)\right)}\right\}$$
+
 You can see this all in Desmos! https://www.desmos.com/calculator/reyvmryl8c
 
 That's the forward model: predict time-series temperature given setpoint $S$ and current temperature $T_0$. Then I have a greedy optimizer that runs on the esp32 to calculate this when you bake a recipe.
 
+On the PCB, genuinely the only silkscreen markings other than footprints and reference designators were "K+/K-" and "输入/输出"
+
+Here's the board if you're curious:
+
+|     |     |
+| --- | --- |
+| ![](docs/board_front.jpeg) | ![](docs/board_back_labeled.jpeg) |
 
 [^1]: There's an undulating pattern in the residuals, which isn't exactly ideal, but the model works well enough for my needs
 [^2]: So I only collected time-series data for three heating curves, so of course everything looks pretty linear, but I think it'll work.
