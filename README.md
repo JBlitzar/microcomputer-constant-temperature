@@ -29,16 +29,36 @@ Unfortunately, the blog post ends with "Everything will be on github" and no git
 
 My approach is slightly different: All I do is hook up the esp32 to the button inputs and the 5v rail, and then it emulates button presses at superhuman speeds at a millisecond schedule.
 
-The other thing is that ideal reflow profiles are actually trapezoids and not smooth. I collected empirical data, found that it heating curves looked mostly exponential[^1], and fitted two parameters: A maximum heating rate $r$, and an exponential time constant $k$ that seemed to be linear in terms of the setpoint[^2].
+The other thing is that ideal reflow profiles are actually trapezoids and not smooth. I collected four heating curves (setpoints of 50, 200, 200 and 400 C) and fit a model where the plate heats at whichever rate is slower: full power, or an exponential approach to the setpoint.
 
-To be precise, given $$t_{k}\left(r,k\right)=\frac{S-T_{0}}{r}-\frac{1}{k}$$, I fit 
+Given:
+
+```math
+\begin{aligned}
+r_{0} &= 3.09 \\
+c &= 0.0033 \\
+T_{c} &= 20+\frac{r_{0}}{c} \\
+T_{s} &= \frac{kS-r_{0}-20c}{k-c} \\
+t_{s} &= \frac{1}{c}\ln\left(\frac{T_{c}-T_{0}}{T_{c}-T_{s}}\right)
+\end{aligned}
+```
+
+I ran the regression:
 
 ```math
 y_{d}\sim\begin{cases}
-T_{0}+rx_{d}, & x_{d}\lt t_{k}(r,k) \\
-S-\dfrac{r}{k}e^{-k\left(x_{d}-t_{k}(r,k)\right)}, & x_{d}\ge t_{k}(r,k)
+T_{0}, & x_{d}<t_{0} \\
+T_{c}-\left(T_{c}-T_{0}\right)e^{-c\left(x_{d}-t_{0}\right)}, & x_{d}<t_{0}+t_{s} \\
+S-\left(S-T_{s}\right)e^{-k\left(x_{d}-t_{0}-t_{s}\right)}, & \text{otherwise}
 \end{cases}
 ```
+
+And then got:
+
+```math
+k(S)=0.01538+0.01733\,e^{-S/154}
+```
+
 
 You can see this all in Desmos! https://www.desmos.com/calculator/kxhdxxqype
 
@@ -58,9 +78,6 @@ Here's the board if you're curious:
 |     |     |
 | --- | --- |
 | ![](docs/board_front.jpeg) | ![](docs/board_back_labeled.jpeg) |
-
-[^1]: There's an undulating pattern in the residuals, which isn't exactly ideal, but the model works well enough for my needs
-[^2]: So I only collected time-series data for three heating curves, so of course everything looks pretty linear, but I think it'll work.
 
 ## Info about this repo
 
@@ -114,7 +131,7 @@ PRH <peak> <ramp_s> <hold_s>
 Go to 100 C as quickly as possible:
 
 ```
-PRH 100 36 60
+PRH 100 27 60
 ```
 
 Low-temp SnBi (Sn42/Bi58, melts at 138 C), straight ramp to 165 C over 120 s, 30 s at peak:
