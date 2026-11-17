@@ -34,8 +34,6 @@ inline uint32_t press_ms(int dS) {
 
 inline float advance(float T, float S, float dt) {
   float k = k_of(S);
-  // Heating rate is min(R0 - C(T - TA), k(S - T)); the two meet at Ts, and
-  // Ts < S < Tc holds because k > C and S <= GRID_MAX.
   float Ts = (k * S - R0 - C * TA) / (k - C);
   if (T >= Ts) {
     return S + (T - S) * expf(-k * dt);
