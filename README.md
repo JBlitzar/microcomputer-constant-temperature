@@ -47,8 +47,8 @@ I ran the regression:
 
 ```math
 y_{d}\sim\begin{cases}
-T_{0}, & x_{d}<t_{0} \\
-T_{c}-\left(T_{c}-T_{0}\right)e^{-c\left(x_{d}-t_{0}\right)}, & x_{d}<t_{0}+t_{s} \\
+T_{0}, & x_{d}\lt t_{0} \\
+T_{c}-\left(T_{c}-T_{0}\right)e^{-c\left(x_{d}-t_{0}\right)}, & x_{d}\lt t_{0}+t_{s} \\
 S-\left(S-T_{s}\right)e^{-k\left(x_{d}-t_{0}-t_{s}\right)}, & \text{otherwise}
 \end{cases}
 ```
