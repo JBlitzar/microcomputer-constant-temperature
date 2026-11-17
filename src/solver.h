@@ -19,11 +19,11 @@ constexpr int MAX_S = 900;
 constexpr int ERR_PARAM = -1;
 constexpr int ERR_NOSOLUTION = -2;
 
-// https://www.desmos.com/calculator/reyvmryl8c
-constexpr float R = 2.2f;
+// https://www.desmos.com/calculator/kxhdxxqype
+constexpr float R0 = 3.09f, C = 0.0033f, TA = 20.0f;
 
 inline float k_of(float S) {
-  return fmaxf(0.0348f - 9.8e-5f * (S - 50.0f), 0.005f);
+  return 0.0153774164428f + 0.0173294839807f * expf(S / -154.030575306f);
 }
 
 inline float press_s(float dS) { return 0.3f + 0.05f * fabsf(dS); }
@@ -34,15 +34,18 @@ inline uint32_t press_ms(int dS) {
 
 inline float advance(float T, float S, float dt) {
   float k = k_of(S);
-  float Tk = S - R / k;
-  if (T >= Tk) {
+  // Heating rate is min(R0 - C(T - TA), k(S - T)); the two meet at Ts, and
+  // Ts < S < Tc holds because k > C and S <= GRID_MAX.
+  float Ts = (k * S - R0 - C * TA) / (k - C);
+  if (T >= Ts) {
     return S + (T - S) * expf(-k * dt);
   }
-  float tk = (Tk - T) / R;
-  if (dt <= tk) {
-    return T + R * dt;
+  float Tc = TA + R0 / C;
+  float ts = logf((Tc - T) / (Tc - Ts)) / C;
+  if (dt <= ts) {
+    return Tc - (Tc - T) * expf(-C * dt);
   }
-  return S - (R / k) * expf(-k * (dt - tk));
+  return S - (S - Ts) * expf(-k * (dt - ts));
 }
 
 inline int solve(const int (*stages)[3], int nstages, Seg *out, int max_segs) {

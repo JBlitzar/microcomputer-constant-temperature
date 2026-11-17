@@ -40,7 +40,7 @@ S-\dfrac{r}{k}e^{-k\left(x_{d}-t_{k}(r,k)\right)}, & x_{d}\ge t_{k}(r,k)
 \end{cases}
 ```
 
-You can see this all in Desmos! https://www.desmos.com/calculator/reyvmryl8c
+You can see this all in Desmos! https://www.desmos.com/calculator/kxhdxxqype
 
 That's the forward model: predict time-series temperature given setpoint $S$ and current temperature $T_0$. Then I have a greedy optimizer that runs on the esp32 to calculate this when you bake a recipe.
 
