@@ -115,6 +115,23 @@ bool read_n_integer_args(SerialCommands *s, int *a, int n) {
   return s->Next() == nullptr;
 }
 
+void solve_stages(SerialCommands *s, int nstages) {
+  int a[6];
+  int n = read_n_integer_args(s, a, 3 * nstages)
+              ? solver::solve(reinterpret_cast<const int (*)[3]>(a), nstages,
+                              staging.segs, MAX_SEGS)
+              : solver::ERR_PARAM;
+  if (n == solver::ERR_PARAM)
+    Serial.println("ERR param");
+  else if (n < 0)
+    Serial.println("ERR nosolution");
+  else {
+    staging.count = n;
+    recipe_save(staging);
+  }
+}
+
+
 void cmd_begin(SerialCommands *s) {
   staging.count = 0;
   Serial.println("OK");
@@ -137,22 +154,6 @@ void cmd_commit(SerialCommands *s) {
     Serial.println("ERR empty");
   else
     recipe_save(staging);
-}
-
-void solve_stages(SerialCommands *s, int nstages) {
-  int a[6];
-  int n = read_n_integer_args(s, a, 3 * nstages)
-              ? solver::solve(reinterpret_cast<const int (*)[3]>(a), nstages,
-                              staging.segs, MAX_SEGS)
-              : solver::ERR_PARAM;
-  if (n == solver::ERR_PARAM)
-    Serial.println("ERR param");
-  else if (n < 0)
-    Serial.println("ERR nosolution");
-  else {
-    staging.count = n;
-    recipe_save(staging);
-  }
 }
 
 void cmd_prh(SerialCommands *s) { solve_stages(s, 1); }
@@ -187,7 +188,7 @@ bool pressed = false;
 int presses = 0;
 uint32_t press_start = 0, last_release = 0, ignore_until = 0;
 
-void disarm_and_ignore(uint32_t ms) {
+void disarm_and_ignore_for_ms(uint32_t ms) {
   pressed = false;
   presses = 0;
   ignore_until = millis() + ms;
@@ -228,6 +229,8 @@ void run_recipe() {
   pinMode(ENT, OUTPUT_OPEN_DRAIN);
   digitalWrite(ENT, HIGH);
   delay(1500);
+  set_setpoint(22);
+  delay(1000);
   resync_setpoint();
   for (int i = 0; i < recipe.count; i++) {
     set_setpoint(recipe.segs[i].sp);
@@ -237,7 +240,7 @@ void run_recipe() {
   }
   set_setpoint(0);
   pinMode(ENT, INPUT);
-  disarm_and_ignore(2000);
+  disarm_and_ignore_for_ms(2000);
   Serial.println("RUN done");
 }
 
@@ -252,7 +255,7 @@ void setup() {
     cmds.AddCommand(&c);
   cmds.SetDefaultHandler(
       [](SerialCommands *, const char *) { Serial.println("ERR unknown"); });
-  disarm_and_ignore(2000);
+  disarm_and_ignore_for_ms(2000);
   Serial.println(recipe_load() ? "READY recipe" : "READY none");
 }
 
